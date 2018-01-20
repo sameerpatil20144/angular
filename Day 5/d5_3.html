@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="eshopper">
+<head>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript">
+
+		appname = angular.module("eshopper",[])
+
+		appname.factory("xyz",function () {
+			// body...
+			var factobj={}
+
+			factobj.record =""
+
+			factobj.store=function (data) {
+				// body...
+				this.record = data
+			}
+			factobj.get =function () {
+				// body...
+				return this.record
+			}
+			return factobj
+		})
+
+		appname.controller("ctrl",function ($scope,xyz) {
+			// body...
+			$scope.sendData = function () {
+				// body...\
+				// alert(1)
+				xyz.store(1000)
+
+			}
+			$scope.getData = function () {
+				// body...\
+				$scope.msg = xyz.get()
+			
+
+			}
+
+		})
+
+
+
+
+	</script>
+</head>
+<body>
+
+	<div ng-controller="ctrl">
+		<button ng-click="sendData()">SET</button>
+		<button ng-click="getData()">GET</button>
+		<div>{{msg}}</div>
+	</div>
+
+
+
+</body>
+</html>

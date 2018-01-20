@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	
+	<script type="text/javascript" src="angular.min.js"></script>
+
+	<script type="text/javascript">
+
+		app= angular.module("eshopper",[])
+
+		app.controller("get_php_data",function ($scope,$http) {
+			// body...
+			$scope.get_data = function () {
+				// body...
+				// console.log($http)
+				$http.get("dummy.php").then(function (response) {
+					// body...
+					// console.log(response)
+					// console.log(response.data)
+
+					$scope.result = response.data
+
+
+
+				},function (error) {
+					// body...
+					console.log(error)
+				})
+			}
+		})
+		
+	</script>
+</head>
+<body>
+
+	<div ng-controller="get_php_data">
+		<button ng-click="get_data()">Enter</button>
+		<div>{{result}}</div>
+	</div>
+
+
+
+</body>
+</html>

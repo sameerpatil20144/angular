@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="eshopper">
+<head>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="angular-route.min.js"></script>
+	<script type="text/javascript">
+		
+		appname= angular.module("eshopper",["ngRoute"])
+		// console.appname
+
+		appname.config(function ($routeProvider) {
+			// body...
+			// console.log($routeProvider)
+
+			$routeProvider
+			.when("/",{
+				template:"HomeData"
+			})
+			.when("/about",{
+				template:"aboutData"
+			})
+			.when("/service",{
+				// template:"serviceData"
+				templateUrl:"service.html"
+			})
+			.otherwise({
+				template:"404Data"
+			})
+		})
+
+
+
+	</script>
+</head>
+<body>
+
+	<a href="#!/">Home</a>
+	<a href="#!/about">About</a>
+	<a href="#!/service">Service</a>
+
+
+	<hr/>
+	<ng-view><ng-view>
+	<!-- <div ng-view></div> -->
+
+
+
+
+
+
+
+</body>
+</html>

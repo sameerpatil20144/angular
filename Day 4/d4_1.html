@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="eshopper">
+<head>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<script type="text/javascript" src="angular.min.js"></script>
+
+	<script type="text/javascript">
+		
+		appname= angular.module("eshopper" , [])
+		// console.log(appname)
+
+		appname.controller("ctrl1",function ($scope,$rootScope) {
+			// body...
+			$scope.do_something =function () {
+				// body...
+				// alert(1)
+				$rootScope.$broadcast("xyz", {size1:"6",size2:"7"})
+			}
+		})
+
+		appname.controller("ctrl2",function ($scope,$rootScope) {
+			// body...
+			$scope.msg="test"
+
+			$rootScope.$on("xyz",function (a,b) {
+				// body...
+				// console.log(a)
+				// console.log(b)
+				$scope.msg = b.size1 + "==" +b.size2
+			})
+		})
+		appname.controller("ctrl3",function ($scope,$rootScope) {
+			// body...
+			$scope.msg="test"
+
+			$rootScope.$on("xyz",function (a,b) {
+				// body...
+				// console.log(a)
+				// console.log(b)
+				$scope.msg = b.size1 + "==" +b.size2
+			})
+		})
+
+
+
+
+
+	</script>
+</head>
+<body>
+
+	<div ng-controller="ctrl1">
+		<input type="button" value="send data" ng-click="do_something()" />
+	</div>
+	<div ng-controller="ctrl2">
+		<h1>Ctrl2</h1>
+		<p>{{msg}}</p>
+	</div>
+	<div ng-controller="ctrl3">
+		<h1>Ctrl3</h1>
+		<p>{{msg}}</p>
+	</div>
+
+
+
+</body>
+</html>

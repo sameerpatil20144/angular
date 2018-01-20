@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="eshopper">
+<head>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript">
+		
+		angular.module("eshopper",[]).controller("getData",function ($scope,$http) {
+			// body...
+			$scope.get_json_file= function () {
+				// body...
+				$http.get("products.json").then(function (res) {
+					// body...
+					console.log(res)
+
+					if(res.status==200){
+						// console.log(res.data)
+						$scope.msg = res.data
+					}
+				},function(err){})
+			}
+		})
+	</script>
+</head>
+<body>
+
+	<div ng-controller="getData">
+		<button ng-click="get_json_file">
+			click
+		</button>
+		<ul>
+			<li ng-repeat="ans in msg">
+				<!-- {{ans}} -->
+				{{ans.name}}
+			</li>
+		</ul>
+	</div>
+
+
+
+
+</body>
+</html>

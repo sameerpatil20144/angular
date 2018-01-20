@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript">
+		
+	</script>
+</head>
+<body>
+
+	<div ng-init="data1=['puma','sam','killer','jeans']">
+		<!-- {{data1}} -->
+		<input type="text" ng-model="search_data">
+
+		<select ng-model="select_data">
+			<option value="name">asc</option>
+			<option value="-name">Desc</option>
+		</select>
+		<ul>
+			<li ng-repeat="ans in data1 | filter: search_data | orderBy:select_data">
+				{{ans.name}}
+			</li>
+		</ul>
+		
+	</div>
+		
+		
+
+</body>
+</html>

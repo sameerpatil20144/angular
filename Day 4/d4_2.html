@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="eshopper">
+<head>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<script type="text/javascript" src="angular.min.js"></script>
+
+	<script type="text/javascript">
+		
+		appname = angular.module("eshopper" ,[])
+		// console.log(appname)
+
+		appname.directive("icons", function () {
+			// body...
+			var xyz={}
+			// xyz.template = "<img src='pencil.png'/> <img src='pepsi.png'/> <img src='pin_blue.png'/>"
+
+			xyz.template="<b>TEST</b>"
+
+			// xyz.templateUrl = "dummy.html"
+
+			xyz.restrict ="AEC"
+
+			return xyz
+		})
+
+
+		appname.directive("footerdata",function () {
+			// body...
+
+			var xyz ={}
+
+			xyz.templateUrl="dummy.html"
+
+			xyz.restrict ="AEC"
+
+			return xyz
+		})
+
+
+	</script>
+</head>
+<body>
+
+	<div>
+		<icons></icons>
+		<!-- <div icons></div> -->
+		<!-- <div class="icons"></div> -->
+
+		<footerdata></footerdata>
+	</div>
+
+
+
+
+</body>
+</html>
